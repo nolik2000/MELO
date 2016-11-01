@@ -1,25 +1,61 @@
-<head>
-    <title>Melomaniac</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Main Style-->
-    <link href="/css/style_dashboard.css" rel="stylesheet">
-
-    <!-- Bootstrap -->
-    <link href="/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Exo+2|Gloria+Hallelujah|Varela+Round" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Caveat+Brush|Nunito|Play|Ubuntu|Varela+Round" rel="stylesheet">
-
-</head>
-
-<body>
+<div class="jumbotron" id="header-photo-inner">
     <div class="container">
-      <div class="row">
-        <h1>{{nickname}}</h1>
-      </div>
+        <h1 class="text-right" id = "logo">Melomaniac</h1>
+
     </div>
-</body>
+</div>
+
+<div class="container space">
+
+    <form method="post" action="/tracks" class="form-horizontal"  role="form">
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">id</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control input-lg" id="Username" placeholder="id" name="id">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="Password" class="col-sm-3 control-label">name</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control input-lg" id="Password" placeholder="name" name="name">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+                <button type="submit" onclick="add()" class="btn-lg singUp">Add</button>
+            </div>
+        </div>
+    </form>
+
+    <p>Track-id: {{{id}}}</p>
+    <p>Track-name: {{{name}}}</p>
+    <div class="col-md-4"></div>
+    <div id="wrapper" class="col-md-8">
+        <audio preload></audio>
+        <ol id = "playList">
+            <li><a href="#" data-src="1.mp3">one</a></li>
+            <li><a href="#" data-src="2.mp3">two</a></li>
+            <li><a href="#" data-src="3.mp3">three</a></li>
+            <li><a href="#" data-src="4.mp3">four</a></li>
+            <li><a href="#" data-src="5.mp3">five</a></li>
+            <li><a href="#" data-src="6.mp3">six</a></li>
+            <li><a href="#" data-src="7.mp3">seven</a></li>
+            <li><a href="#" data-src="8.mp3">eight</a></li>
+        </ol>
+    </div>
+
+
+</div>
+
+<footer class="foot-inner">
+    <div class="container foot">
+        <p class="text-center"><strong>Authors</strong>: <a href ="https://www.facebook.com/nastya.kostiv">Anastasia Kostiv</a> &&
+            <a href = "https://www.facebook.com/vitya.pyatak"> Victor Pyatak</a></p>
+        <p class="text-center">&copy; All rights reserved</p>
+    </div>
+</footer>

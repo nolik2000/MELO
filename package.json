@@ -1,5 +1,5 @@
 {
-  "name": "loginapp",
+  "name": "melomaniac",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -9,10 +9,10 @@
   "author": "Anastasia Kostiv && Victor Pyatak",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs":"*",
-    "body-parser":"*",
-    "connect-flash":"*",
-    "cookie-parser":"^1.4.1",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.1",
     "express": "*",
     "express-handlebars": "*",
     "express-messages": "*",
@@ -25,3 +25,4 @@
     "passport-local": "*"
   }
 }
+

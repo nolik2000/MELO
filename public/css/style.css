@@ -1,38 +1,114 @@
-html {
-  background: url(img/Back.jpg) no-repeat center center fixed;
+body{
+  margin: 0;
+}
+
+
+#header-photo{
+  background-image: url(img/person-woman-park-music.jpg);
+  /*width: 100%;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-repeat: no-repeat;
+  height: 35em;
+  -webkit-box-shadow: inset 17px 166px 217px 63px rgba(0,0,0,0.7);
+  -moz-box-shadow: inset 17px 166px 217px 63px rgba(0,0,0,0.7);
+  box-shadow: inset 17px 166px 217px 63px rgba(0,0,0,0.7);
+}
+#logo{
+  color: hsl(285, 18%, 95%);
+  font-family: 'Cabin Sketch', cursive;
+  /*font-size: 80px;*/
 }
 
-.ab {
-  margin-top: 20px;
+#text{
+  font-size: 24px;
+  margin-top: 5em;
+  margin-bottom: 5em;
 }
 
-.singUp{
-  background: rgba(123,111,72,1);
-background: -moz-linear-gradient(left, rgba(123,111,72,1) 0%, rgba(123,111,72,0.99) 13%, rgba(254,182,69,0.93) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(123,111,72,1)), color-stop(13%, rgba(123,111,72,0.99)), color-stop(100%, rgba(254,182,69,0.93)));
-background: -webkit-linear-gradient(left, rgba(123,111,72,1) 0%, rgba(123,111,72,0.99) 13%, rgba(254,182,69,0.93) 100%);
-background: -o-linear-gradient(left, rgba(123,111,72,1) 0%, rgba(123,111,72,0.99) 13%, rgba(254,182,69,0.93) 100%);
-background: -ms-linear-gradient(left, rgba(123,111,72,1) 0%, rgba(123,111,72,0.99) 13%, rgba(254,182,69,0.93) 100%);
-background: linear-gradient(to right, rgba(123,111,72,1) 0%, rgba(123,111,72,0.99) 13%, rgba(254,182,69,0.93) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7b6f48', endColorstr='#feb645', GradientType=1 );border: none;
+footer{
+  background-color: #375f7d;
+}
+
+.foot{
+  padding-top: 2.5em;
+  color: white;
+}
+
+.foot a{
+  color: #bcbcbc;
+  text-decoration: none;
+}
+
+.foot a:active{
+  color: #bcbcbc;
+  text-decoration: none;
+}
+.foot a:visited{
+  color: #bcbcbc;
+  text-decoration: none;
+}
+
+.foot a:hover{
+  color: #bcbcbc;
+  text-decoration: none;
+}
+
+.singIn{
+  background: rgb(130, 119, 81);
+/*background: -moz-linear-gradient(left, rgba(123,111,72,1) 0%, rgba(123,111,72,0.99) 13%, rgba(254,182,69,0.93) 100%);*/
+/*background: -webkit-gradient(left top, right top, color-stop(0%, rgba(123,111,72,1)), color-stop(13%, rgba(123,111,72,0.99)), color-stop(100%, rgba(254,182,69,0.93)));*/
+/*background: -webkit-linear-gradient(left, rgba(123,111,72,1) 0%, rgba(123,111,72,0.99) 13%, rgba(254,182,69,0.93) 100%);*/
+/*background: -o-linear-gradient(left, rgba(123,111,72,1) 0%, rgba(123,111,72,0.99) 13%, rgba(254,182,69,0.93) 100%);*/
+/*background: -ms-linear-gradient(left, rgba(123,111,72,1) 0%, rgba(123,111,72,0.99) 13%, rgba(254,182,69,0.93) 100%);*/
+/*background: linear-gradient(to right, rgba(123,111,72,1) 0%, rgba(123,111,72,0.99) 13%, rgba(254,182,69,0.93) 100%);*/
+/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7b6f48', endColorstr='#feb645', GradientType=1 );  */
+  border: none;
 color:white;
 }
 
-.registerStyle{
-  color:#acb3c1;
+.singUp{
+  border: none;
+  color:white;
+  background: rgb(130, 30, 51);
 }
 
-.fontStyle{
-  color: #facd75;
-  font-size: 30px;
+.space{
+  color: rgba(97, 0, 14, 0.84);
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
 }
 
-.aboutStyle{
-  color:#743042;
-  font-size: 27px;
-  margin-top: 260px;
+#question{
+  padding-bottom: 2em;
+  font-size: 35px;
+  color: #827751;
+  font-weight: bold;
+}
+
+#Logform{
+  padding-bottom: 2em;
+  font-size: 35px;
+  color: #821e33;
+  font-weight: bold;
+}
+
+#header-photo-inner{
+  background-image: url(img/welcome-photo.jpeg);
+  /*width: 100%;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 25em;
+  -webkit-box-shadow: inset 17px 166px 217px 63px rgba(0,0,0,0.7);
+  -moz-box-shadow: inset 17px 166px 217px 63px rgba(0,0,0,0.7);
+  box-shadow: inset 17px 166px 217px 63px rgba(0,0,0,0.7);
+}
+
+.foot-inner{
+  background-color: #960631;
 }

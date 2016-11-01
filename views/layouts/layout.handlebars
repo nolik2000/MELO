@@ -1,30 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+    <html lang="en">
 
-<head>
-    <title>Melomaniac</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <head>
 
-    <!-- Main Style-->
-    <link href="/css/style.css" rel="stylesheet">
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap -->
-    <link href="/css/bootstrap.css" rel="stylesheet">
+            <title>Melomanic</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Exo+2|Gloria+Hallelujah|Varela+Round" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Caveat+Brush|Nunito|Play|Ubuntu|Varela+Round" rel="stylesheet">
+            <!--Icons-->
+            <link rel="shortcut icon" href="/css/img/toolbar_music.ico" type="image/x-icon">
+            <link rel="shortcut icon" href="/css/img/toolbar_music.png" type="image/png">
 
-</head>
+            <!--Styles-->
+            <link rel="stylesheet" href="/css/style.css">
+            <link rel="stylesheet" href="/css/media.css">
 
-<body>
-    <div class="container">
-      <div class="row">
-        {{{body}}}
-      </div>
-    </div>
-</body>
+            <!--Fonts-->
+            <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Exo+2|Gloria+Hallelujah|Varela+Round" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Caveat+Brush|Nunito|Play|Ubuntu|Varela+Round" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+            <!-- Bootstrap -->
+            <link rel="stylesheet" href="/css/bootstrap.css">
 
-</html>
+        </head>
+
+        <body>
+
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        {{#if user}}
+                            <li role="presentation"><a href="/">Dashboard</a></li>
+                            <li role="presentation"><a href ="/users/logout">Sign out</a></li>
+                        {{else}}
+                            <li role="presentation"><a href="/users/about">About</a></li>
+                            <li role="presentation"><a href="/users/login">Sign in</a></li>
+                            <li role="presentation"><a href="/users/register">Sign up</a></li>
+                        {{/if}}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+            {{{body}}}
+
+
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+        <!-- Script && Bootstarp -->
+        <script src="/js/bootstrap.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/audio1.js"></script>
+        <script src ="js/script.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        </body>
+
+    </html>

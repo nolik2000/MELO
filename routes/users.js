@@ -7,90 +7,99 @@ var User = require('../models/user');
 
 // Register
 router.get('/register', function(req, res){
-	res.render('register');
+    res.render('register');
 });
 
 // Login
 router.get('/login', function(req, res){
-	res.render('/');
+    res.render('login');
+});
+
+router.get('/about', function(req, res){
+    res.render('about');
 });
 
 // Register User
 router.post('/register', function(req, res){
-  var nickname = req.body.nickname;
-  var password = req.body.password;
-  var password2 = req.body.password2;
-  var mobileNumber = req.body.mobileNumber;
-  var email = req.body.email;
+    var username = req.body.username;
+    var password = req.body.password;
+    var password2 = req.body.password2;
+    var mobileNumber = req.body.mobileNumber;
+    var email = req.body.email;
 
-	// Validation
-	req.checkBody('nickname', 'Nickname is required').notEmpty();
-	req.checkBody('password', 'Password is required').notEmpty();
-  req.checkBody('password2', 'Password do not match').equals(req.body.password);
-  req.checkBody('mobileNumber', 'Mobile Number is required').notEmpty();
- //  req.checkBody('mobileNumber', 'Mobile Number is not valid').isMobilePhone();
-  req.checkBody('email', 'Email is required').notEmpty();
-  req.checkBody('email', 'Email is not valid').isEmail();
+    // Validation
+    req.checkBody('username', 'Username is required').notEmpty();
+    req.checkBody('password', 'Password is required').notEmpty();
+    req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+    req.checkBody('mobileNumber', 'Mobile number is required').notEmpty();
+    req.checkBody('email', 'Email is required').notEmpty();
+    req.checkBody('email', 'Email is not valid').isEmail();
 
-	var errors = req.validationErrors();
 
-	  if(errors){
-	    res.render('register',{
-	      errors:errors
-	    });
-	  }else{
-	    var newUser = new User({
-	      nickname: nickname,
-	      email:email,
-	      mobileNumber:mobileNumber,
-	      password: password
-	    });
+    var errors = req.validationErrors();
 
-	    User.createUser(newUser, function(err, users){
-	      if(err) throw err;
-	    //  console.log(user);
-	    });
+    if(errors){
+        res.render('register',{
+            errors:errors
+        });
+    } else{
+        var newUser = new User({
+            username: username,
+            password: password,
+            mobileNumber: mobileNumber,
+            email:email
+        });
 
-	    req.flash('success_msg', 'You are registered.......');
+        User.createUser(newUser, function(err, user){
+            if(err) throw err;
+            console.log(user);
+        });
 
-	   res.redirect('/');
-	  }
+       res.redirect('/');
+    }
 });
 
 passport.use(new LocalStrategy(
-	function(nickname, password, done) {
-   User.getUserByNickname(nickname, function(err, users){
-   	if(err) throw err;
-   	if(!users){
-   		return done(null, false, {message: 'Unknown User'});
-   	}
+    function(username, password, done) {
+        User.getUserByUsername(username, function(err, user){
+            if(err) throw err;
+            if(!user){
+                return done(null, false, {message: 'Unknown User'});
+            }
 
-   	User.comparePassword(password, users.password, function(err, isMatch){
-   		if(err) throw err;
-   		if(isMatch){
-   			return done(null, users);
-   		} else {
+            User.comparePassword(password, user.password, function(err, isMatch){
+                if(err) throw err;
+                if(isMatch){
+                    return done(null, user);
+                } else {
+                    return done(null, false, {message: 'Invalid password'});
+                }
+            });
+        });
+    }));
 
-   			return done(null, false, {message: 'Invalid password'});
-   		}
-   	});
-   });
-  }));
-
-passport.serializeUser(function(users, done){
-  done(null, users.id);
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
 });
 
-passport.deserializeUser(function(id, done){
-  User.getUserById(id, function(err, users){
-    done(err, users);
-  });
+passport.deserializeUser(function(id, done) {
+    User.getUserById(id, function(err, user) {
+        done(err, user);
+    });
 });
+
 
 router.post('/login',
-passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/register', failureFlash: true}),
-function(req, res){
-res.redirect('/');
+    passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),
+    function(req, res) {
+        res.redirect('/');
+    });
+
+router.get('/logout', function(req, res){
+    req.logout();
+    req.flash('success_msg', 'You are logged out');
+    res.redirect('/users/about');
 });
+
 
 module.exports = router;
